@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+         <meta name="viewport" content="with=device-width, initial-scale=1.0">
+        <title>Legendary Predict</title>
+
+        
+        
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+         <div class="banner-text">
+            <h1> Legendary Predict</h1>
+        </div>
+
+<style>*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; 
+    justify-content: center;
+}
+
+html {
+    background-color: black;
+    background-image: url("IMG-20230607-WA0109.jpg");
+   
+}
+  table {
+        width: 100%;
+        border-collapse: collapse;
+      color: white;
+      background-color: navy;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #000;
+        color: gold;
+    }
+
+    th {
+        background-color: #000;
+        color: white;
+        
+    }
+    h1{
+        color: white;
+        text-align: center;
+    }
+ /* Styling for buttons */
+    .btn {
+        display: inline-block;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: white;
+        color: white;
+        border-radius: 4px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+    }
+
+    /* Styling for headers */
+    .title.header {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: white;
+    }
+    span {
+        font-weight: bold;
+        color: white;
+    }
+    
+    
+    /* Common styles for all screen sizes */
+
+    /* Your existing styles here */
+
+    /* Styles for small screens (up to 767px) */
+    @media (max-width: 767px) {
+        /* Adjust styles for small screens here */
+    }
+
+    /* Styles for medium screens (768px to 991px) */
+    @media (min-width: 768px) and (max-width: 991px) {
+        /* Adjust styles for medium screens here */
+    }
+
+    /* Styles for large screens (992px and above) */
+    @media (min-width: 992px) {
+        /* Adjust styles for large screens here */
+    }
+
+    
+    .cascading-message {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cascading-message span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        animation: cascading-message-animation 5s infinite;
+    }
+
+    .cascading-message span:nth-child(1) {
+        animation-delay: 0s;
+    }
+
+    .cascading-message span:nth-child(2) {
+        animation-delay: 1s;
+    }
+
+    .cascading-message span:nth-child(3) {
+        animation-delay: 2s;
+    }
+
+    /* Add more span selectors for additional messages */
+
+    @keyframes cascading-message-animation {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+        20% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        80% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        100% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    }
+
+
+
+
+    
+       /* Preloader styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .preloader .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 50%;
+            margin: 0 5px;
+            opacity: 0.3;
+            animation: dot-pulse 1s infinite ease-in-out;
+        }
+
+        @keyframes dot-pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.5);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+
+        /* Hide preloader when page finishes loading */
+        .loaded .preloader {
+            display: none;
+        }
+    
+
+    
+    </style>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-cont">
+                    <table class="table" id="latestPredictions">
+                        <tbody>
+
+                            <!-- Your table rows here -->
+                        </tbody>
+                    </table>
+                    <div style="text-align: right">
+                        <h4 class="title header" style="border-radius:0px 0px 5px 5px"></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    </head>
+
+<body>
+  <!-- Preloader HTML -->
+    <div class="preloader">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+  
+
+<section class="prediction_list">
+        <div class="container">
+            <div class="row">
+
+              <div class="col-lg-12">
+                   <h4 class="title header">
+                    <span class="">Today's Tips </span>   </h4>
+               </div>
+               <div class="col-12">
+                  <div class="table-cont">
+                    <table class="table" id="latestTips">
+                        <tbody><tr>
+                            <th>Time</th>
+                            <th>DATE</th>
+                            <th>LEAGUES</th>
+                            <th>MATCH</th>
+                            <th>Category</th>
+                            <th>Odds</th>
+                            <th>Predictions</th>
+                       </tr>
+
+
+                        
+                        <tr>
+                             <td>15:00</td>
+                             <td>Today</td>
+                             <td>Egypt second league</td>
+                             <td><strong>Fjolnir vs Grotta</strong></td>
+                             <td>DNB</td>
+                             <td>1.14</td>
+                             <td>over 0.5 1st half</td>
+                        </tr>
+                        <tr>
+                             <td>20:00</td>
+                             <td>today</td>
+                             <td>Iceland INKASSO-DEILDIN</td>
+                             <td><strong>La Viena FC VS Telephonaat</strong></td>
+                             <td>DNB</td>
+                             <td>1.11</td>
+                             <td>over 0.5 1st half</td>
+                            
+                        </tr>                    </tbody></table>
+                </div>
+
+               </div>
+         
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+
+        if ("IntersectionObserver" in window) {
+            var lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var lazyImage = entry.target;
+                        lazyImage.src = lazyImage.dataset.src;
+                        lazyImage.classList.remove("lazy");
+                        lazyImageObserver.unobserve(lazyImage);
+                    }
+                });
+            });
+
+            lazyImages.forEach(function(lazyImage) {
+                lazyImageObserver.observe(lazyImage);
+            });
+        } else {
+            // Fallback for browsers without Intersection Observer support
+            lazyImages.forEach(function(lazyImage) {
+                lazyImage.src = lazyImage.dataset.src;
+                lazyImage.classList.remove("lazy");
+            });
+        }
+    });
+</script>
+
+<script src="https://unpkg.com/dot-js/dist/dot.min.js"></script>
+    <script>
+        // Wait for the page to fully load
+        window.addEventListener("load", function() {
+            // Remove the "loading" class from the body element
+            document.body.classList.add("loaded");
+        });
+    </script>
+</body>
